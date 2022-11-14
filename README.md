@@ -12,7 +12,7 @@ After analysing the financials of the company, we can say that in last 86 months
 
 ![Financial Analysis](https://user-images.githubusercontent.com/24644072/201574573-11016b2b-bae6-468c-8363-aadddfa0ef28.PNG)
 
-!(Images/Financial Analysis.png)
+![](Images/Financial Analysis.png)
 
 ***1.a)‘Set path for file.***
 ```
@@ -62,7 +62,8 @@ In the project we are analysig Election results of the small town.
 There were total 369,711 votes had been cast, and the Winner is Diana DeGette who received 73% votes that is equal to 272,892
 
 ![Election Result](https://user-images.githubusercontent.com/24644072/201574629-2bcc7046-7cbe-4c19-89ec-7a13f09b3b2d.PNG)
-!(Images/Election Result.png)
+
+![](Images/Election Result.png)
 
 ***1.a)‘Set path for file.***
 ```
