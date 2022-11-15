@@ -11,6 +11,7 @@ In the project we are analysig financial records of the company,for the given pe
 After analysing the financials of the company, we can say that in last 86 months company has a profit of 22M, and has average change per month is -8,311.11, and we saw a greatest jump in the month of Aug-16 with 1.86M and lost change per month in Feb-14 with -1.82M
 
 ![Financial Analysis](https://user-images.githubusercontent.com/24644072/201807589-a0555a3b-7068-4548-9b48-3c5bd81aef0d.PNG)
+
 ![](Images/Financial Analysis.png)
 
 ***1.a)‘Set path for file.***
@@ -103,6 +104,7 @@ In the project we are analysig Election results of the small town.
 
 There were total 369,711 votes had been cast, and the Winner is Diana DeGette who received 73% votes that is equal to 272,892
 ![Election Result](https://user-images.githubusercontent.com/24644072/201807626-9375d6b6-8f7c-463a-8685-70cb5e0cbd39.PNG)
+
 ![](Images/Election Result.png)
 
 ***1.a)‘Set path for file.***
