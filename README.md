@@ -10,18 +10,21 @@ In the project we are analysig financial records of the company,for the given pe
 
 After analysing the financials of the company, we can say that in last 86 months company has a profit of 22M, and has average change per month is -8,311.11, and we saw a greatest jump in the month of Aug-16 with 1.86M and lost change per month in Feb-14 with -1.82M
 
-![Financial Analysis](https://user-images.githubusercontent.com/24644072/201574573-11016b2b-bae6-468c-8363-aadddfa0ef28.PNG)
-
 ![](Images/Financial Analysis.png)
 
 ***1.a)‘Set path for file.***
 ```
 csv_path = os.path.join('Resources', 'budget_data.csv')
 ```
-***b)‘# Initialize Total Months and Total.***
+***b)‘# # Initialize Total Months and Total Profit and other***
 ```
-TotalMonths = 0
-Total = 0
+totalmonths= 0
+totalprofitloss=0
+avgprofitlosses=0
+maxincrease=["",0]
+maxdecrease=["",0]
+lastmonthprofit=0
+netprofitlosseslist=[]
 ```
   
 
@@ -41,16 +44,54 @@ header = next(csvreader)
  ```
 ***d)‘ # Add to total months count and total profit ..***
  ```
-      TotalMonths = TotalMonths + 1
-      Total += int(row[1])
+    totalmonths += 1
+    lastmonthprofit = int(firstdatarow[1])
+    totalprofitloss += int(firstdatarow[1])
  ```
+***e)‘ # Add the count of the total months ..***
+ ```
+    	totalmonths += 1
+        totalprofitloss+=int(row[1])
 
-***3)‘Export the results to text file.***
+        netprofitlosses= int(row[1])-lastmonthprofit
+        lastmonthprofit=int (row[1])
+        netprofitlosseslist+=[netprofitlosses]
+ ```
+***f)‘ # Finding value of Max & Min profit/Loss***
+ ```
+    	 if netprofitlosses> maxincrease[1]:
+           maxincrease[1]=netprofitlosses
+           maxincrease[0]=row[0]
+        elif netprofitlosses < maxdecrease[1]:
+           maxdecrease[1] = netprofitlosses
+           maxdecrease[0] = row[0]
+ ```
+***g)‘ # Find Average of profit and loss***
+ ```
+    	 avgprofitlosses= totalprofitloss/totalmonths
+   	 avgprofitlosses= sum(netprofitlosseslist)/len(netprofitlosseslist)
+ ```
+***3.a)‘Export the results to text file.***
  ```
 outputfile = os.path.join("Analysis","budget_analysis.text")
 with open(outputfile, "w") as txt_file:
 
  ```
+***b)‘ # Print the Financial Analysis (to terminal)***
+ ```
+    Financial_Analysis =(
+    f"Financial Analysis\n"
+    f"--------------------------\n"
+    f"Total Months: {totalmonths }\n"
+    f"Total: ${totalprofitloss:,}\n"
+    f"Average Change: ${avgprofitlosses:,.2f}\n"
+    f"Greatest Increase in Profits: {maxincrease[0]} (${maxincrease[1]:,})\n"
+    f"Greatest Decrease in Profits: {maxdecrease[0]} (${maxdecrease[1]:,})\n"
+    )
+        print(Financial_Analysis)
+        txt_file.write(Financial_Analysis)
+ ```
+
 
  # Election Analysis
 ## Project Overview
@@ -60,8 +101,6 @@ In the project we are analysig Election results of the small town.
 ## Summary
 
 There were total 369,711 votes had been cast, and the Winner is Diana DeGette who received 73% votes that is equal to 272,892
-
-![Election Result](https://user-images.githubusercontent.com/24644072/201574629-2bcc7046-7cbe-4c19-89ec-7a13f09b3b2d.PNG)
 
 ![](Images/Election Result.png)
 
